@@ -1,0 +1,43 @@
+.fullModal {
+    background-color: white;
+    width: 60%;
+    margin: 230px auto !important;
+    font-family: 'Roboto';
+    font-style: normal;
+    color: #5E6366;
+    border-right: 1px solid black;
+}
+
+.fullModal.invoice {
+    margin: 60px auto !important;
+}
+
+.fullModal header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #367BF5;
+    padding: 23px;
+    color: white;
+    font-weight: 900 !important;
+}
+
+.fullModal .form,
+.fullModal form {
+    padding: 32px;
+}
+
+.fullModal .form div,
+.fullModal form div {
+    margin-bottom: 15px;
+}
+
+.fullModal .btn {
+    background-color: #939393;
+    font-size: 23px;
+    font-weight: bold;
+    color: #434444;
+}
+
+i {
+    cursor: pointer;
+}

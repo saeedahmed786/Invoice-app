@@ -1,0 +1,107 @@
+.Invoice {
+    font-family: 'Roboto' !important;
+    font-style: normal !important;
+    color: #5E6366;
+}
+
+.Invoice .header {
+    padding: 0px 28px;
+}
+
+.Invoice .invoiceNoContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(212, 212, 212);
+    text-align: end !important;
+    gap: 4px;
+    padding: 23px 0px;
+}
+
+.Invoice .invoiceNoContainer .text-dark {
+    word-wrap: break-word !important;
+}
+
+.Invoice .invoiceNoContainer h4 {
+    font-weight: 800 !important;
+}
+
+.Invoice .invoiceNoContainer .InvoiceNo {
+    padding: 4px 23px;
+    color: black;
+}
+
+.Invoice .buttonsContainer {
+    background-color: rgb(212, 212, 212);
+    padding: 15px;
+    margin: 28px 0px 43px 0px;
+}
+
+.Invoice .buttonsContainer .btn {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 32px;
+    border: 1px solid #367BF5;
+    padding: 10px;
+    color: #5E6366;
+}
+
+.Invoice .summary {
+    padding: 43px 28px;
+    font-family: 'Roboto' !important;
+    font-style: normal !important;
+}
+
+.Invoice .summary .right {
+    text-align: end !important;
+}
+
+.Invoice .summary .right label {
+    margin: 10px 0px;
+}
+
+.Invoice .summary .right .text {
+    font-size: 19px;
+}
+
+.Invoice .summary .right .text.unpaid {
+    color: #F00C0C;
+}
+
+.Invoice table thead th {
+    background-color: rgb(243, 243, 243);
+    padding: 15px 4px;
+}
+
+.Invoice table tbody tr td {
+    padding: 15px 4px;
+}
+
+.Invoice table tbody tr:nth-child(2) td {
+    background-color: rgb(243, 243, 243);
+    padding: 15px 4px;
+}
+
+.Invoice .col-md-6 table tbody td:nth-child(2) {
+    text-align: end;
+}
+
+.Invoice .col-md-8 table tbody tr:nth-child(2) td {
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .Invoice .invoiceNoContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: rgb(212, 212, 212);
+        text-align: end !important;
+        gap: 4px;
+        padding: 10px 0px;
+        text-align: center !important;
+    }
+
+    .Invoice .summary {
+        padding: 32px 0px;
+    }
+}

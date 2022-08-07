@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+  overflow-x: hidden !important;
+  font-family: 'Abril Fatface';
+}
+
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+  font-family: 'Abril Fatface';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 0.08em;
+  color: #9D9D9D;
+}
+
+body a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+  background-color: white !important;
+}
+
+.Unpaid {
+  color: #F00C0C !important;
+}
+
+.Paid {
+  color: #29D919 !important;
+}
+
+@media (max-width: 768px) {
+  .fullModal {
+    width: 100% !important;
+  }
+  .marketing {
+    width: 100% !important;
+    margin-bottom: 23px;
+  }
+  .Auth .right>div {
+    width: 80% !important;
+  }
+}

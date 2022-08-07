@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.Dashboard .col-6>div {
+    background: #F7F9FA;
+    border-radius: 16px;
+    text-align: center;
+    padding: 10px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dashboard .col-6 h4 {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.Dashboard .col-6 h4.count {
+    font-weight: 900 !important;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end !important;
+}
+
+.Dashboard .received .count {
+    color: #2FA84F;
+}
+
+.Dashboard .pending .count {
+    color: #367BF5;
+}
+
+.Dashboard .totalAmount .count {
+    color: #2FA84F;
+}
+
+.Dashboard .totalInvoices .count {
+    color: #F3AA18;
+}
+
+.Dashboard .UnpaidInvoices .count {
+    color: #EA3D2F;
+}
+
+.Dashboard .Overdue .count {
+    color: #367BF5;
+}
+
+.Dashboard table {
+    margin-top: 32px;
+    font-family: 'Roboto', sans-serif !important;
+    font-style: normal;
+    border-color: #E3E5E6 !important;
+    vertical-align: middle !important;
+}
+
+.Dashboard table th,
+.Dashboard table td {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    color: #5E6366;
+    vertical-align: middle !important;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: #E3E5E6;
+}
+
+.Dashboard .danger {
+    color: #F00C0C;
+}
+
+.Dashboard .success {
+    color: #29D919;
+}
+
+@media (max-width: 768px) {
+    .Dashboard .col-6 {
+        margin: 23px 0px;
+    }
+}

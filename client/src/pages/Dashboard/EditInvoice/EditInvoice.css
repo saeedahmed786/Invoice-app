@@ -1,0 +1,76 @@
+.EditInvoice {
+    font-family: 'Roboto';
+    font-style: normal;
+    color: #5E6366;
+}
+
+.EditInvoice .header {
+    padding: 0px 28px;
+}
+
+.EditInvoice .invoiceNoContainer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 4px;
+}
+
+.EditInvoice .invoiceNoContainer .InvoiceNo {
+    background-color: rgb(212, 212, 212);
+    padding: 4px 23px;
+    color: black;
+}
+
+.EditInvoice .summary {
+    padding: 43px 28px;
+}
+
+.EditInvoice .summary .right {
+    text-align: end;
+}
+
+.EditInvoice .summary .right label {
+    margin: 10px 0px;
+}
+
+.EditInvoice .summary .right .text {
+    font-size: 19px;
+}
+
+.EditInvoice .summary .right .text.unpaid {
+    color: #F00C0C;
+}
+
+.EditInvoice table thead th {
+    background-color: rgb(243, 243, 243);
+    padding: 15px 4px;
+}
+
+.EditInvoice table tbody tr td {
+    padding: 15px 4px;
+}
+
+.EditInvoice table tbody tr:nth-child(2) td {
+    background-color: rgb(243, 243, 243);
+    padding: 15px 4px;
+}
+
+.EditInvoice .col-md-6 table tbody td:nth-child(2) {
+    text-align: end;
+}
+
+.EditInvoice .col-md-8 table tbody tr:nth-child(2) td {
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .EditInvoice .header {
+        padding: 0px 0px;
+    }
+    .EditInvoice .summary {
+        padding: 23px 0px !important;
+    }
+    .EditInvoice .bottomInputs .col-md-4 {
+        margin-bottom: 23px !important;
+    }
+}
