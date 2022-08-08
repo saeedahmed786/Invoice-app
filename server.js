@@ -79,6 +79,10 @@ app.post("/api/send/invoice", async (req, res) => {
     });
 })
 
+router.get("/api", async(req, res) => {
+    res.send("Server running....")
+})
+
 
 app.listen(process.env.PORT || 8000, () => console.log('Listening to port 8000'));
 
