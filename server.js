@@ -34,10 +34,10 @@ mongoose.connect(config.mongoURI, {
 }).then(() => console.log('MongoDb Connected')).catch(err => console.log(err));
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('./frontend/build'));
+    app.use(express.static('./client/build'));
 
     app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 
     });
 }
