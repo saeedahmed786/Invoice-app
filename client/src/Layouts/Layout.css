@@ -48,7 +48,8 @@
 }
 
 .Layout .cutomerBtn .btn .css-shoean-MuiIcon-root,
-.Layout .customerBtn .btn .MuiIcon-root.MuiIcon-colorPrimary {
+.Layout .customerBtn .btn .MuiIcon-root.MuiIcon-colorPrimary,
+.css-21f8pw {
     color: #CC66CC !important;
     font-size: 1rem !important;
     margin-right: 10px !important;
