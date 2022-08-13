@@ -20,7 +20,7 @@ body a {
   cursor: pointer;
 }
 
-.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+.MuiFormControl-root label {
   background-color: white !important;
 }
 
