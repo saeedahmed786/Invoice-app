@@ -113,7 +113,7 @@ export const Signup = (props) => {
                                             <TextField type="email" id="standard-basic" label="Email Address" variant="standard" onChange={(e) => setEmail(e.target.value)} />
                                         </div>
                                         <div className='input-container'>
-                                            <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
+                                            <FormControl className='w-100' variant="standard">
                                                 <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                                                 <Input
                                                     id="standard-adornment-password"
