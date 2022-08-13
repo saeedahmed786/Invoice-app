@@ -82,9 +82,10 @@
 }
 
 .Auth .input-container .css-1u3bzj6-MuiFormControl-root-MuiTextField-root,
-.Auth .css-r47a1p-MuiFormControl-root {
+.Auth .css-r47a1p-MuiFormControl-root,
+.Auth .MuiTextField-root {
     width: 100% !important;
-    margin: 0px;
+    margin: 0px !important;
 }
 
 .Auth .btn {

@@ -47,8 +47,9 @@
     padding: 15px;
 }
 
-.Layout .cutomerBtn .btn .css-shoean-MuiIcon-root {
-    color: #CC66CC;
+.Layout .cutomerBtn .btn .css-shoean-MuiIcon-root,
+.Layout .customerBtn .btn .MuiIcon-root.MuiIcon-colorPrimary {
+    color: #CC66CC !important;
     font-size: 1rem !important;
-    margin-right: 10px;
+    margin-right: 10px !important;
 }

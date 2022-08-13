@@ -66,9 +66,9 @@ exports.login = async (req, res) => {
             }
             jwt.sign(payload, config.jwtSecret, (err, token) => {
                 if (err) res.status(400).json({ errorMessage: 'Jwt Error' })
-                const { _id, fullName, email } = findUser;
+                const { _id, fullName, email, file } = findUser;
                 res.status(200).json({
-                    _id, fullName, email,
+                    _id, fullName, email, file,
                     token,
                     successMessage: 'Logged In Successfully',
                 });
@@ -100,7 +100,9 @@ exports.updateUserProfile = async (req, res) => {
 
             const saveUser = await findUser.save();
             if (saveUser) {
-                res.status(200).json({ successMessage: 'User Updated Successfully' })
+                res.status(200).json({
+                    successMessage: 'Logged In Successfully',
+                })
             } else (
                 res.status(400).json({ errorMessage: 'User could not be Updated.' })
             )

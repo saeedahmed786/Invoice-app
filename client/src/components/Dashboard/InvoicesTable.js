@@ -87,9 +87,12 @@ export const InvoicesTable = () => {
                     </tbody>
                 </table>
             </div>
-            <div className='text-end showMore'>
-                <button className='btn' onClick={() => setLimit(100000000000)} style={{ fontFamily: "'Roboto', sans-serif", color: "#069697", fontSize: "14px" }}>Show more</button>
-            </div>
+            {
+                data?.length > 10 &&
+                <div className='text-end showMore'>
+                    <button className='btn' onClick={() => setLimit(100000000000)} style={{ fontFamily: "'Roboto', sans-serif", color: "#069697", fontSize: "14px" }}>Show more</button>
+                </div>
+            }
         </div>
     )
 }

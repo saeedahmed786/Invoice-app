@@ -4,5 +4,8 @@ module.exports = {
     jwtExpire: process.env.JWT_EXPIRE,
     email: process.env.GMAIL,
     password: process.env.PASSWORD,
-    googleClient: process.env.GOOGLE_CLIENT
+    googleClient: process.env.GOOGLE_CLIENT,
+    cloudinary_cloud_name: process.env.CLOUD_NAME,
+    cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
+    cloudinary_api_secret: process.env.CLOUDINARY_SECRET_KEY
 }

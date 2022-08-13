@@ -5,20 +5,11 @@ import { Dashboard } from "./pages/Dashboard/Dashboard/Dashboard";
 import { EditInvoice } from "./pages/Dashboard/EditInvoice/EditInvoice";
 import { Invoice } from "./pages/Dashboard/Invoice/Invoice";
 import UserRoute from "./UserRoute";
-// import {
-//   StylesProvider,
-//   createGenerateClassName
-// } from '@material-ui/core/styles';
-
-// const generateClassName = createGenerateClassName({
-//   seed: 'app1'
-// });
 
 function App() {
   return (
     <div className="App" style={{ overflowX: "hidden" }}>
       <BrowserRouter>
-        {/* <StylesProvider generateClassName={generateClassName}> */}
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
@@ -26,7 +17,6 @@ function App() {
           <UserRoute exact path="/invoice/update/:id" component={EditInvoice} />
           <UserRoute exact path="/invoice/:id" component={Invoice} />
         </Switch>
-        {/* </StylesProvider> */}
       </BrowserRouter>
     </div>
   );

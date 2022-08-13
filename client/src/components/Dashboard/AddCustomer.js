@@ -51,7 +51,9 @@ export default function AddCustomer({ newCustomer, submitHandler, updateCustomer
                             <div className='fw-bold fs-3'>{newCustomer ? "New" : "Update"} Customer</div>
                         </div>
                         <div>
-                            <a className="text-white fs-3" onClick={handleClose}>x</a>
+                            <a className="text-white fs-3" onClick={handleClose}>
+                                <i className="fa-solid fa-xmark"></i>
+                            </a>
                         </div>
                     </header>
                     <div className='form'>

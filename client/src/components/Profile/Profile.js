@@ -29,7 +29,6 @@ export default function Profile() {
     const handleImageChange = (e) => {
         setFile(
             e.target.files[0]
-
         )
     }
 
@@ -74,7 +73,7 @@ export default function Profile() {
             setLoading(false);
             if (res.status === 200) {
                 SuccessAlert(res.data.successMessage);
-                getUserById();
+                document.location.reload();
             } else {
                 ErrorAlert(res.data.errorMessage);
             }
@@ -97,7 +96,9 @@ export default function Profile() {
                             <div className='fw-bold fs-3'> Profile</div>
                         </div>
                         <div>
-                            <a className="text-white fs-3" onClick={handleClose}>x</a>
+                            <a className="text-white fs-3" onClick={handleClose}>
+                                <i className="fa-solid fa-xmark"></i>
+                            </a>
                         </div>
                     </header>
                     {

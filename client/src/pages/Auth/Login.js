@@ -54,7 +54,9 @@ export const Login = (props) => {
             <div className='row'>
                 <div className='col-md-4 left'>
                     <div className='logoCont'>
-                        <img src={logo} alt="Logo" width="32" height="32" />
+                        <Link to="/">
+                            <img src={logo} alt="Logo" width="32" height="32" />
+                        </Link>
                         <h2>Welcome to UniAncer</h2>
                     </div>
                     <img src={marketing} alt="Marketing compaign" className='marketing' />

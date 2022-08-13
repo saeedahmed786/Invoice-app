@@ -44,3 +44,7 @@ body a {
     width: 80% !important;
   }
 }
+
+.rounded-circle {
+  object-fit: contain !important;
+}
