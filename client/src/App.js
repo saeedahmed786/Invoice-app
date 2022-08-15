@@ -7,7 +7,7 @@ import { Invoice } from "./pages/Dashboard/Invoice/Invoice";
 import UserRoute from "./UserRoute";
 
 function App() {
-  return (
+  return ( 
     <div className="App" style={{ overflowX: "hidden" }}>
       <BrowserRouter>
         <Switch>
