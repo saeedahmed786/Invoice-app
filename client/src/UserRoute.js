@@ -8,7 +8,7 @@ const UserRoute = ({ component: Component, ...rest }) => {
             <Route
                 {...rest}
                 render={(props) =>
-                    isAuthenticated() && isAuthenticated().token ? (
+                    isAuthenticated() ? (
                         <Component {...props} />
                     ) : (
                         <Redirect to='/login' />

@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ErrorAlert, SuccessAlert } from '../Messages/Messages';
-import { InvoicePrice } from './InvoicePrice';
 
 export const InvoicesTable = () => {
     const [data, setData] = useState([]);

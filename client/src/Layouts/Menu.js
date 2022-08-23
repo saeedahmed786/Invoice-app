@@ -35,7 +35,7 @@ export default function NavMenu() {
     };
 
     useEffect(() => {
-        getUserById();
+        isAuthenticated() && getUserById();
         return () => {
 
         }

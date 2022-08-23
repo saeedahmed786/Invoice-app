@@ -52,7 +52,6 @@ export default function AddInvoice() {
         });
     };
 
-    console.log(date)
     return (
         <>
 
@@ -94,7 +93,6 @@ export default function AddInvoice() {
                             </LocalizationProvider>
                         </div>
                         <div>
-                            {/* <TextField name='status' fullWidth id="standard-basic" label="Status" variant="standard" onChange={handleChange} /> */}
                             <FormControl variant="standard" fullWidth>
                                 <Select
                                     labelId="demo-simple-select-standard-label"
