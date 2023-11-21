@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { ErrorAlert, SuccessAlert } from '../../components/Messages/Messages'
 import { Loading } from '../../components/Loading/Loading'
-import { isAuthenticated, setAuthentication } from '../../components/Auth/auth'
+import { setAuthentication } from '../../components/Auth/auth'
 
 export const Login = (props) => {
     const [loading, setLoading] = useState(false);

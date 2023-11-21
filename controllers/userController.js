@@ -10,116 +10,134 @@ const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT);
 
 
 exports.getAllUsers = async (req, res) => {
-    const users = await User.find();
-    if (users) {
-        res.status(200).json(users);
-    }
-    else {
-        res.status(404).json({ errorMessage: 'No user found!' });
+    try {
+        const users = await User.find();
+        if (users) {
+            res.status(200).json(users);
+        }
+        else {
+            res.status(404).json({ errorMessage: 'No user found!' });
+        }
+    } catch (error) {
+        res.status(400).send(error);
     }
 }
 
 exports.getUserById = async (req, res) => {
-    console.log(req.params.id)
-    const user = await User.findOne({ _id: req.params.id });
-    if (user) {
-        res.status(200).json(user);
-    }
-    else {
-        res.status(404).json({ errorMessage: 'No user found!' });
+    try {
+        const user = await User.findOne({ _id: req.params.id });
+        if (user) {
+            res.status(200).json(user);
+        }
+        else {
+            res.status(404).json({ errorMessage: 'No user found!' });
+        }
+    } catch (error) {
+        res.status(400).send(error);
     }
 }
 
 exports.signUp = async (req, res) => {
-    const ifEmailAlreadyPresent = await User.findOne({ email: req.body.email });
-    if (ifEmailAlreadyPresent) {
-        res.status(201).json({ errorMessage: 'Email already exists. Please try another one.' });
-    }
-    else {
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync(req.body.password, salt);
-        const user = new User({
-            fullName: req.body.fullName,
-            email: req.body.email,
-            password: hash
-        });
-
-        const saveUser = await user.save();
-        if (saveUser) {
-            res.status(200).json({ successMessage: 'Account created successfuly!. Please Sign in.' });
-        } else {
-            res.status(400).json({ errorMessage: 'Account not created. Please try again' });
+    try {
+        const ifEmailAlreadyPresent = await User.findOne({ email: req.body.email });
+        if (ifEmailAlreadyPresent) {
+            res.status(201).json({ errorMessage: 'Email already exists. Please try another one.' });
         }
+        else {
+            var salt = bcrypt.genSaltSync(10);
+            var hash = bcrypt.hashSync(req.body.password, salt);
+            const user = new User({
+                fullName: req.body.fullName,
+                email: req.body.email,
+                password: hash
+            });
+
+            const saveUser = await user.save();
+            if (saveUser) {
+                res.status(200).json({ successMessage: 'Account created successfuly!. Please Sign in.' });
+            } else {
+                res.status(400).json({ errorMessage: 'Account not created. Please try again' });
+            }
+        }
+    } catch (error) {
+        res.status(400).send(error);
     }
 }
 
 
 exports.login = async (req, res) => {
-    const findUser = await User.findOne({ email: req.body.email });
-    if (findUser) {
-        const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
-        if (checkPassword) {
-            const payload = {
-                user: {
-                    _id: findUser._id
+    try {
+        const findUser = await User.findOne({ email: req.body.email });
+        if (findUser) {
+            const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
+            if (checkPassword) {
+                const payload = {
+                    user: {
+                        _id: findUser._id
+                    }
                 }
-            }
-            jwt.sign(payload, config.jwtSecret, (err, token) => {
-                if (err) res.status(400).json({ errorMessage: 'Jwt Error' })
-                const { _id, fullName, email, file } = findUser;
-                res.status(200).json({
-                    _id, fullName, email, file,
-                    token,
-                    successMessage: 'Logged In Successfully',
+                jwt.sign(payload, config.jwtSecret, (err, token) => {
+                    if (err) res.status(400).json({ errorMessage: 'Jwt Error' })
+                    const { _id, fullName, email, file } = findUser;
+                    res.status(200).json({
+                        _id, fullName, email, file,
+                        token,
+                        successMessage: 'Logged In Successfully',
+                    });
                 });
-            });
+            } else {
+                res.status(201).json({ errorMessage: 'Incorrect username or password.' })
+            }
+
         } else {
             res.status(201).json({ errorMessage: 'Incorrect username or password.' })
         }
-
-    } else {
-        res.status(201).json({ errorMessage: 'Incorrect username or password.' })
+    } catch (error) {
+        res.status(400).send(error);
     }
 }
 
 
 
 exports.updateUserProfile = async (req, res) => {
-    console.log(req.body);
-    const findUser = await User.findOne({ _id: req.params.id });
-    if (findUser) {
-        if (req.file) {
-            const imgUrl = findUser.cloudinary_id;
-            await imgUrl && cloudinaryCon.uploader.destroy(imgUrl);
-            const { path } = req.file;
-            const uploading = await cloudinary.uploads(path, 'User Images');
-            fs.unlinkSync(path);
-            findUser.fullName = req.body.fullName;
-            findUser.email = req.body.email;
-            findUser.file = uploading;
+    try {
+        const findUser = await User.findOne({ _id: req.params.id });
+        if (findUser) {
+            if (req.file) {
+                const imgUrl = findUser.cloudinary_id;
+                await imgUrl && cloudinaryCon.uploader.destroy(imgUrl);
+                const { path } = req.file;
+                const uploading = await cloudinary.uploads(path, 'User Images');
+                fs.unlinkSync(path);
+                findUser.fullName = req.body.fullName;
+                findUser.email = req.body.email;
+                findUser.file = uploading;
 
-            const saveUser = await findUser.save();
-            if (saveUser) {
-                res.status(200).json({
-                    successMessage: 'Logged In Successfully',
-                })
-            } else (
-                res.status(400).json({ errorMessage: 'User could not be Updated.' })
-            )
-        }
-        else {
-            findUser.fullName = req.body.fullName;
-            findUser.email = req.body.email;
+                const saveUser = await findUser.save();
+                if (saveUser) {
+                    res.status(200).json({
+                        successMessage: 'Logged In Successfully',
+                    })
+                } else (
+                    res.status(400).json({ errorMessage: 'User could not be Updated.' })
+                )
+            }
+            else {
+                findUser.fullName = req.body.fullName;
+                findUser.email = req.body.email;
 
-            const saveUser = await findUser.save();
-            if (saveUser) {
-                res.status(200).json({ successMessage: 'User Updated Successfully' })
-            } else (
-                res.status(400).json({ errorMessage: 'User could not be Updated.' })
-            )
+                const saveUser = await findUser.save();
+                if (saveUser) {
+                    res.status(200).json({ successMessage: 'User Updated Successfully' })
+                } else (
+                    res.status(400).json({ errorMessage: 'User could not be Updated.' })
+                )
+            }
+        } else {
+            res.status(404).json({ errorMessage: 'User not found.' })
         }
-    } else {
-        res.status(404).json({ errorMessage: 'User not found.' })
+    } catch (error) {
+        res.status(400).send(error);
     }
 }
 

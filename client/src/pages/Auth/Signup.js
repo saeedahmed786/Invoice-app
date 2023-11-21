@@ -7,7 +7,6 @@ import { FormControl, IconButton, Input, InputAdornment, InputLabel, TextField }
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import swal from "sweetalert"
 import { ErrorAlert, SuccessAlert } from '../../components/Messages/Messages'
 import { Loading } from '../../components/Loading/Loading'
 import { setAuthentication } from '../../components/Auth/auth'
